@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" />
+		<title><!-- Title Here --></title>
+		<link rel="stylesheet" type="text/css" href="css/google.css">
+		<link rel="stylesheet" type="text/css" href="bower_components/material-design-lite/material.min.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="dash-btn" data-bind="click: fadeTag">
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--raised mdl-shadow--8dp">
+							<img src="bower_components/material-design-icons/action/drawable-mdpi/ic_explore_black_48dp.png">
+					</button>
+		  </div>
+			<div class="options-box" style="display: none;">
+						<h5>Emergency Map</h5>
+						<div>
+						  <form>
+							<div class="place-types">
+                                <input class="with-gap" name="type" type="radio" id="hospital" value="hospital" />
+                                <label for="hospital">Hospital</label>
+                            </div>
+                            <div class="place-types">
+                                <input class="with-gap" name="type" type="radio" id="fire_station" value="fire_station" />
+                                <label for="fire_station">Fire Station</label>
+                            </div>
+                            <div class="place-types">
+                                <input class="with-gap" name="type" type="radio" id="police" value="police" />
+                                <label for="police">Police</label>
+                            </div>
+                            <div class="place-types">
+                                <input class="with-gap" name="type" type="radio" id="transit_station" value="transit_station" />
+                                <label for="transit_station">Transit Station</label>
+							</div>
+                            <!--
+							<select data-width="100px" data-bind="value: placetypes">
+								<option value="hospital">Hospital</option>
+								<option value="fire_station">Fire Station</option>
+								<option value="police">Police</option>
+								<option value="transit_station">Transit Stations</option>
+							</select>
+                            -->
+				          </form>
+						</div>
+						<div class="results-box">
+							<table id="resultsTable">
+								<tbody id="res-list"></tbody>
+							</table>
+						</div>
+			</div>
+			<div data-bind="mapPanel" id="map"></div>
+		</div>
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="bower_components/knockout/knockout.js"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBGWK3QBXHdMOIYrSm3zAcNRFiChj9lcHI&libraries=places"></script>
+		<script type="text/javascript" src="js/map.js"></script>
+		<script type="text/javascript" src="bower_components/material-design-lite/material.min.js"></script>
+	</body>
+</html>
