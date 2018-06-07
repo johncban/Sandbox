@@ -20,13 +20,12 @@ body, #map {
 	width: 48%;
 }
 
-/**
+
 .map { 
     height:100%; 
     width:100%;
     position: absolute;
 }
-**/
 
 .dash-btn {
 	opacity: 0.6;
