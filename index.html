@@ -19,14 +19,17 @@
 					<label><input name="locationType" type="radio" data-bind="checked:placeType" value="requestH" />Hospitals</label>
 					<label><input name="locationType" type="radio" data-bind="checked:placeType" value="requestP" />Police</label>
 					<label><input name="locationType" type="radio" data-bind="checked:placeType" value="requestF" />Fire Station</label>
-
-					<ul data-bind="foreach: allPlaces">
-						<li data-bind="click: $parent.clickMarker">
-							<p class="name">
-								<span data-bind="text: name"><span></span></span>
-							</p>
-						</li>
-					</ul>
+					
+					<table>
+						<thead>
+							  <tr><th data-bind="text:placeType"></th></tr>
+						</thead>
+						<tbody data-bind="foreach: allPlaces">
+							  <tr>
+								  <td data-bind="text: name"></td>
+							  </tr>
+						</tbody>
+					</table>
 					
 				</div>
 			<div id="map-canvas" class="map"></div>
@@ -34,8 +37,9 @@
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript" src="bower_components/knockout/knockout.js"></script>
 		
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBGWK3QBXHdMOIYrSm3zAcNRFiChj9lcHI&libraries=places"></script>
+		<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBGWK3QBXHdMOIYrSm3zAcNRFiChj9lcHI&libraries=places"></script> -->
 		<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&callback=startMap&key=AIzaSyBGWK3QBXHdMOIYrSm3zAcNRFiChj9lcHI&libraries=places" onerror="mapError()"></script> -->
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places"></script>
 		<script type="text/javascript" src="js/map.js"></script>
 		<script type="text/javascript" src="bower_components/material-design-lite/material.min.js"></script>
 	</body>
