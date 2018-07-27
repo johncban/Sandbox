@@ -10,6 +10,9 @@
 </head>
 
 <body>
+
+
+
     <div class="container">
         <div class="weather-box" data-bind="visible: showWeatherInfo">
             <h2 class="weather-temp" id="temp">
@@ -27,30 +30,21 @@
             </h2>
         </div>
 
-        
-
-        <div class="all-results-box" data-bind="visible: showPlaceTable">
 
 
+        <div class="placelist-box">
             <table>
-                <thead>
-                    <!--
-                    <div>
-                        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-            
-                    </div>
-                    -->
-                </thead>
-                <tbody data-bind="foreach: allListPlaces">
+                <tbody data-bind="foreach: allPlaces">
                     <tr>
-                        <td data-bind="text: name"></td>
+                        <td data-bind="text: name, click: listClick"></td>
                     </tr>
                 </tbody>
             </table>
-
-
-
         </div>
+
+
+
+
         <div class="dash-btn" data-bind="click: fadeTag">
             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--raised mdl-shadow--8dp" id="hideMrkr">
                 <img src="bower_components/ic_explore_black_48dp/ic_explore_black_48dp.png">
@@ -77,28 +71,25 @@
                     </span>
                 </label>
             </div>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="firestations">
-                <input id="firestations" class="mdl-radio__button" name="locationType" type="radio" data-bind="checked:placeType" value="FireStations"
-                />
-                <span class="mdl-radio__label">
-                    Fire Stations
-                </span>
-            </label>
-            <div class="results-box">
-                <table>
-                    <thead>
-                        <tr>
-                            <th data-bind="text:placeType"></th>
-                        </tr>
-                    </thead>
-                    <tbody data-bind="foreach: allPlaces">
-                        <tr>
-                            <td data-bind="text: name, click: listClick"></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="firestations">
+                    <input id="firestations" class="mdl-radio__button" name="locationType" type="radio" data-bind="checked:placeType" value="FireStations"
+                    />
+                    <span class="mdl-radio__label">
+                        Fire Stations
+                    </span>
+                </label>
             </div>
+            <div class="placepop place-num">Place Types</div>
+            <!-- https://webdesign.tutsplus.com/tutorials/learning-material-design-lite-text-fields--cms-24614 -->
+            <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input id="search-input" class="mdl-textfield__input" type="text"/>
+                    <label class="mdl-textfield__label" for="search-input">Search Location</label>
+                </div>
+            </form>
         </div>
+
 
         <div id="mp-c" class="map"></div>
 
