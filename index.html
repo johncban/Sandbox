@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
-<html>
-
+<html class="mdl-js">
+<!-- HEADER -->
 <head>
     <meta http-equiv="Content-Type" content="text/html" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,8 +8,9 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="bower_components/material-design-lite/material.min.css">
 </head>
-
+<!-- BODY -->
 <body>
+    <!-- ADAPTIVE CSS CONTAINER -->
     <div class="container">
         <div class="weather-box" data-bind="visible: showWeatherInfo">
             <h2 class="weather-temp" id="temp">
@@ -26,37 +27,21 @@
             <h2 class="weather-alert" id="alrt">
             </h2>
         </div>
-
-        
-
-        <div class="all-results-box" data-bind="visible: showPlaceTable">
-
-
-            <table>
-                <thead>
-                    <!--
-                    <div>
-                        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-            
-                    </div>
-                    -->
-                </thead>
-                <tbody data-bind="foreach: allListPlaces">
-                    <tr>
-                        <td data-bind="text: name"></td>
-                    </tr>
-                </tbody>
-            </table>
-
-
-
-        </div>
+        <!-- Placelist -->
+        <table class="placelist-box" data-bind="visible: showPlaceList">
+            <tbody data-bind="foreach: allPlaces">
+                <tr>
+                    <td data-bind="text: name, click: listClick"></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Compass Navigator -->
         <div class="dash-btn" data-bind="click: fadeTag">
             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--raised mdl-shadow--8dp" id="hideMrkr">
                 <img src="bower_components/ic_explore_black_48dp/ic_explore_black_48dp.png">
             </button>
         </div>
-
+        <!-- Compass Controls -->
         <div class="options-box" data-bind="visible: showMapOptions">
             <h5>Emergency Map</h5>
             <div>
@@ -77,20 +62,28 @@
                     </span>
                 </label>
             </div>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="firestations">
-                <input id="firestations" class="mdl-radio__button" name="locationType" type="radio" data-bind="checked:placeType" value="FireStations"
-                />
-                <span class="mdl-radio__label">
-                    Fire Stations
-                </span>
-            </label>
+            <div>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="firestations">
+                    <input id="firestations" class="mdl-radio__button" name="locationType" type="radio" data-bind="checked:placeType" value="FireStations"
+                    />
+                    <span class="mdl-radio__label">
+                        Fire Stations
+                    </span>
+                </label>
+            </div>
+            <!-- Compass Google Places Search Bar -->
+            <!-- https://webdesign.tutsplus.com/tutorials/learning-material-design-lite-text-fields--cms-24614 -->
+            <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input id="search-input" class="mdl-textfield__input" type="text" />
+                    <label class="mdl-textfield__label" for="search-input">Search Location</label>
+                </div>
+            </form>
+            <!-- Place Type Counter -->
+            <div class="placepop place-num">Place Types</div>
+            <!-- Compass Search Results Box -->
             <div class="results-box">
                 <table>
-                    <thead>
-                        <tr>
-                            <th data-bind="text:placeType"></th>
-                        </tr>
-                    </thead>
                     <tbody data-bind="foreach: allPlaces">
                         <tr>
                             <td data-bind="text: name, click: listClick"></td>
@@ -99,18 +92,15 @@
                 </table>
             </div>
         </div>
-
+        <!-- Google Map -->
         <div id="mp-c" class="map"></div>
-
     </div>
+    <!-- Javascript Libraries -->
     <script type="text/javascript" src="bower_components/jquery.min/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/knockout/knockout.js"></script>
-
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGWK3QBXHdMOIYrSm3zAcNRFiChj9lcHI&libraries=places&sensor=false&callback=appStart"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGWK3QBXHdMOIYrSm3zAcNRFiChj9lcHI&libraries=places&callback=appStart"></script>
     <script type="text/javascript" src="js/mapApp.js"></script>
-    </script>
     <script type="text/javascript" src="bower_components/material-design-lite/material.min.js"></script>
     <script async defer src="https://gitcdn.link/cdn/darkskyapp/skycons/master/skycons.js"></script>
 </body>
-
 </html>
