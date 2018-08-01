@@ -54,6 +54,10 @@ body,
 	margin: 1%;
 }
 
+.box-shadow {
+	box-shadow:3px 3px 10px #236D77;
+}
+
 .results-box {
 	opacity: 0.9;
 	height: 180px;
@@ -100,11 +104,8 @@ body,
 
 .infobox-rating {
 	font-size: 12px;
-<<<<<<< HEAD
 	font-weight:500;
-=======
 	font-weight: bolder;
->>>>>>> 5c6bdd6a933bf9c95a4679db938cef31ae8b6587
 	color: #4d5a70;
 }
 
