@@ -51,7 +51,6 @@ function appViewModel() {
 
     var mpStartUpTimer = window.setTimeout(mapException, 5000);
 
-    var mpStartUpTimer = window.setTimeout(mapException, 6000);
 
 
     // Search and calculate the center of the map for latitude and longitude
@@ -690,9 +689,6 @@ function appViewModel() {
                 $('#hideMrkr').click(function () {
                     if (!place.marker.getVisible()) {
                         place.marker.setVisible(true);
-                        if (self.showMapOptions()) {
-                            self.allPlaces.removeAll();
-                        }
                     } else {
                         clearMarker();
                         self.allPlaces.removeAll();
@@ -703,19 +699,12 @@ function appViewModel() {
                 place.marker = createMarker(place);
                 bounds.extend(new google.maps.LatLng(
                     place.geometry.location.lat(),
-                    place.geometry.location.lng()
-                ));
+                    place.geometry.location.lng()));
             });
-
             mp.fitBounds(bounds);
             results.forEach(getAllPlaces);
         }
         $(".placepop").html((placeType()) + ": " + res);
-    }
-
-    // https://stackoverflow.com/questions/37214504/how-to-test-for-google-maps-place-type-with-if-conditional
-    function isInArray(a, b) {
-        return !!~a.indexOf(b);
     }
 
 
